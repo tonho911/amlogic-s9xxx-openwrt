@@ -19,12 +19,17 @@ on:
         type: choice
         options:
           - openwrt:22.03.5
+          - openwrt:21.02.7
+          - openwrt:19.07.10
+          - openwrt:18.06.9
+          - immortalwrt:21.02.7
       openwrt_board:
         description: "Select device board"
         required: false
         default: "all"
         type: choice
         options:
+          - all
           - s905x-b860h
       openwrt_kernel:
         description: "Select kernel version"
@@ -34,6 +39,10 @@ on:
         options:
           - 5.4.1_5.10.1
           - 5.15.1_6.1.1
+          - 5.4.1
+          - 5.10.1
+          - 5.15.1
+          - 6.1.1
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
