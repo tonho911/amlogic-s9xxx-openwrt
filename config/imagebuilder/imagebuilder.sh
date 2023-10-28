@@ -178,13 +178,11 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        btrfs-progs base-files busybox ca-bundle ca-certificates dropbear firewall4 fstools \
-        kmod-gpio-button-hotplug kmod-leds-gpio  \
-        kmod-nft-offload libc libgcc libustream-wolfssl logd mtd netifd \ 
-        nftables odhcp6c odhcpd-ipv6only opkg procd procd-seccomp \
-        procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd \ 
-        zram-swap block-mount e2fsprogs fdisk libiwinfo-lua perlbase-file perlbase-time \
-        coreutils-nohup tar bash curl luci-compat unzip bzip2 luci-app-amlogic \
+        btrfs-progs base-files busybox ca-bundle dropbear e2fsprogs -dnsmasq dnsmasq-full firewall4 fstools kmod-nft-offload  \
+        libc libgcc libustream-wolfssl logd mkf2fs netifd nftables odhcp6c odhcpd-ipv6only opkg partx-utils  \
+        procd uboot-envtools uci uclient-fetch urandom-seed urngd  \
+        zram-swap tar bash curl luci-compat bind-tools coreutils-nohup perlbase-file perlbase-time  \
+        -ppp -ppp-mod-pppoe -kmod-ppp  \
         \
         luci-app-amlogic \
         \
@@ -192,7 +190,8 @@ rebuild_firmware() {
         "
 
     # Rebuild firmware
-    make image PROFILE="${target_profile}" PACKAGES="${my_packages}" FILES="files"
+    make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
+
 
     sync && sleep 3
     echo -e "${INFO} [ openwrt/bin/targets/*/* ] directory status: $(ls bin/targets/*/* -l 2>/dev/null)"
