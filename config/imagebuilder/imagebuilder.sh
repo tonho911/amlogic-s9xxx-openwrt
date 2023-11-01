@@ -181,7 +181,7 @@ rebuild_firmware() {
         base-files busybox ca-bundle dnsmasq dropbear e2fsprogs firewall4 fstools kmod-nft-offload \
         libc libgcc logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg \
         partx-utils procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd \
-        btrfs-progs zram-swap tar bash curl bind-tools luci luci-mod-admin-full perlbase-file perlbase-time \
+        btrfs-progs zram-swap tar bash curl bind-tools luci-mod-admin-full perlbase-file perlbase-time \
         luci-app-amlogic \
         \
         ${config_list} \
