@@ -179,7 +179,7 @@ rebuild_firmware() {
     # sorting by https://build.moz.one
     my_packages="\
         base-files busybox ca-bundle dnsmasq dropbear e2fsprogs firewall4 fstools kmod-nft-offload \
-        libc libgcc libustream-mbedtls logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg \
+        libc libgcc logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg \
         partx-utils procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd \
         btrfs-progs zram-swap tar bash curl bind-tools luci luci-mod-admin-full perlbase-file perlbase-time \
         luci-app-amlogic \
