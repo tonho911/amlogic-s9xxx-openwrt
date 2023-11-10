@@ -182,6 +182,9 @@ rebuild_firmware() {
         libc libgcc logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg \
         partx-utils procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd \
         btrfs-progs zram-swap tar bash curl bind-tools luci-compat luci-mod-admin-full perlbase-file perlbase-time \
+        ath9k-htc-firmware btrfs-progs hostapd hostapd-utils kmod-ath kmod-ath9k kmod-ath9k-common \
+        kmod-ath9k-htc kmod-cfg80211 kmod-crypto-acompress kmod-crypto-crc32c kmod-crypto-hash \
+        kmod-fs-btrfs kmod-mac80211 wireless-tools wpa-cli wpa-supplicant \
         luci-app-amlogic \
         \
         ${config_list} \
