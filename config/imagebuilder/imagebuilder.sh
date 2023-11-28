@@ -178,7 +178,7 @@ rebuild_firmware() {
     # Selecting default packages, lib, theme, app and i18n, etc.
     # sorting by https://build.moz.one
     my_packages="\
-        base-files busybox ca-bundle -dnsmasq dnsmasq-full dropbear e2fsprogs firewall4 fstools kmod-nft-offload libc libgcc libustream-mbedtls logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd \
+        base-files busybox ca-bundle -dnsmasq dnsmasq-full dropbear e2fsprogs firewall fstools ip6tables iptables kmod-ipt-offload libc libgcc libustream-wolfssl logd luci mkf2fs mtd netifd odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd uci uclient-fetch urandom-seed urngd \
         btrfs-progs zram-swap tar bash curl bind-tools ca-certificates luci-compat coreutils-nohup luci-mod-admin-full perlbase-file perlbase-time \
         luci-app-amlogic \
         \
