@@ -18,7 +18,7 @@ on:
         default: "openwrt:23.05.3"
         type: choice
         options:
-          - openwrt:23.05.5
+          - openwrt:23.05.3
           - openwrt:23.05.2
       openwrt_board:
         description: "Select device board"
@@ -41,7 +41,7 @@ on:
           - 6.1.y
           - 6.6.y
           - 6.1.y_6.6.y
-          - 5.15.y_6.1.y_6.6.y
+          - 5.15.y_5.10.y
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
