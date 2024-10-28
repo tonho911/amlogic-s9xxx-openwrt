@@ -9,20 +9,16 @@
 # https://github.com/ophub/amlogic-s9xxx-openwrt
 #
 # Description: Build OpenWrt with Image Builder
-# Copyright (C) 2021~ https://github.com/unifreq/openwrt_packit
-# Copyright (C) 2021~ https://github.com/ophub/amlogic-s9xxx-openwrt
-# Copyright (C) 2021~ https://downloads.openwrt.org/releases
-# Copyright (C) 2023~ https://downloads.immortalwrt.org/releases
+# Copyright (C) 2021- https://github.com/unifreq/openwrt_packit
+# Copyright (C) 2021- https://github.com/ophub/amlogic-s9xxx-openwrt
 #
 # Download from: https://downloads.openwrt.org/releases
-#                https://downloads.immortalwrt.org/releases
-#
 # Documentation: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
 # Instructions:  Download OpenWrt firmware from the official OpenWrt,
 #                Use Image Builder to add packages, lib, theme, app and i18n, etc.
 #
-# Command: ./config/imagebuilder/imagebuilder.sh <source:branch>
-#          ./config/imagebuilder/imagebuilder.sh openwrt:21.02.3
+# Command: ./router-config/openwrt-imagebuilder/imagebuilder.sh <branch>
+#          ./router-config/openwrt-imagebuilder/imagebuilder.sh 21.02.3
 #
 #======================================== Functions list ========================================
 #
@@ -38,10 +34,10 @@
 #
 # Set default parameters
 make_path="${PWD}"
-openwrt_dir="imagebuilder"
+openwrt_dir="openwrt"
 imagebuilder_path="${make_path}/${openwrt_dir}"
-custom_files_path="${make_path}/config/imagebuilder/files"
-custom_config_file="${make_path}/config/imagebuilder/config"
+custom_files_path="${make_path}/router-config/openwrt-imagebuilder/files"
+custom_config_file="${make_path}/router-config/openwrt-imagebuilder/config"
 
 # Set default parameters
 STEPS="[\033[95m STEPS \033[0m]"
@@ -63,28 +59,18 @@ download_imagebuilder() {
     cd ${make_path}
     echo -e "${STEPS} Start downloading OpenWrt files..."
 
-    # Determine the target system (Imagebuilder files naming has changed since 23.05.0)
-    if [[ "${op_branch:0:2}" -ge "23" && "${op_branch:3:2}" -ge "05" ]]; then
-        target_system="armsr/armv8"
-        target_name="armsr-armv8"
-        target_profile=""
-    else
-        target_system="armvirt/64"
-        target_name="armvirt-64"
-        target_profile="Default"
-    fi
-
     # Downloading imagebuilder files
-    download_file="https://downloads.${op_sourse}.org/releases/${op_branch}/targets/${target_system}/${op_sourse}-imagebuilder-${op_branch}-${target_name}.Linux-x86_64.tar.xz"
-    curl -fsSOL ${download_file}
-    [[ "${?}" -eq "0" ]] || error_msg "Download failed: [ ${download_file} ]"
+    # Download example: https://downloads.openwrt.org/releases/21.02.3/targets/armvirt/64/openwrt-imagebuilder-21.02.3-armvirt-64.Linux-x86_64.tar.xz
+    download_file="https://downloads.openwrt.org/releases/${rebuild_branch}/targets/armvirt/64/openwrt-imagebuilder-${rebuild_branch}-armvirt-64.Linux-x86_64.tar.xz"
+    wget -q ${download_file}
+    [[ "${?}" -eq "0" ]] || error_msg "Wget download failed: [ ${download_file} ]"
 
     # Unzip and change the directory name
-    tar -xJf *-imagebuilder-* && sync && rm -f *-imagebuilder-*.tar.xz
-    mv -f *-imagebuilder-* ${openwrt_dir}
+    tar -xJf openwrt-imagebuilder-* && sync && rm -f openwrt-imagebuilder-*.tar.xz
+    mv -f openwrt-imagebuilder-* ${openwrt_dir}
 
     sync && sleep 3
-    echo -e "${INFO} [ ${make_path} ] directory status: $(ls -al 2>/dev/null)"
+    echo -e "${INFO} [ ${make_path} ] directory status: $(ls . -l 2>/dev/null)"
 }
 
 # Adjust related files in the ImageBuilder directory
@@ -101,7 +87,6 @@ adjust_settings() {
         sed -i "s|CONFIG_TARGET_ROOTFS_SQUASHFS=.*|# CONFIG_TARGET_ROOTFS_SQUASHFS is not set|g" .config
         sed -i "s|CONFIG_TARGET_IMAGES_GZIP=.*|# CONFIG_TARGET_IMAGES_GZIP is not set|g" .config
     else
-        echo -e "${INFO} [ ${imagebuilder_path} ] directory status: $(ls -al 2>/dev/null)"
         error_msg "There is no .config file in the [ ${download_file} ]"
     fi
 
@@ -109,7 +94,7 @@ adjust_settings() {
     # ......
 
     sync && sleep 3
-    echo -e "${INFO} [ ${imagebuilder_path} ] directory status: $(ls -al 2>/dev/null)"
+    echo -e "${INFO} [ openwrt ] directory status: $(ls -al 2>/dev/null)"
 }
 
 # Add custom packages
@@ -121,22 +106,20 @@ custom_packages() {
 
     # Create a [ packages ] directory
     [[ -d "packages" ]] || mkdir packages
-    cd packages
 
     # Download luci-app-amlogic
     amlogic_api="https://api.github.com/repos/ophub/luci-app-amlogic/releases"
     #
     amlogic_file="luci-app-amlogic"
     amlogic_file_down="$(curl -s ${amlogic_api} | grep "browser_download_url" | grep -oE "https.*${amlogic_name}.*.ipk" | head -n 1)"
-    curl -fsSOJL ${amlogic_file_down}
-    [[ "${?}" -eq "0" ]] || error_msg "[ ${amlogic_file} ] download failed!"
-    echo -e "${INFO} The [ ${amlogic_file} ] is downloaded successfully."
+    wget -q ${amlogic_file_down} -O packages/${amlogic_file_down##*/}
+    [[ "${?}" -eq "0" ]] && echo -e "${INFO} The [ ${amlogic_file} ] is downloaded successfully."
     #
     # Download other luci-app-xxx
     # ......
-
+    
     sync && sleep 3
-    echo -e "${INFO} [ packages ] directory status: $(ls -al 2>/dev/null)"
+    echo -e "${INFO} [ packages ] directory status: $(ls packages -l 2>/dev/null)"
 }
 
 # Add custom packages, lib, theme, app and i18n, etc.
@@ -166,7 +149,7 @@ custom_files() {
         cp -rf ${custom_files_path}/* files
 
         sync && sleep 3
-        echo -e "${INFO} [ files ] directory status: $(ls files -al 2>/dev/null)"
+        echo -e "${INFO} [ files ] directory status: $(ls files -l 2>/dev/null)"
     else
         echo -e "${INFO} No customized files were added."
     fi
@@ -178,31 +161,33 @@ rebuild_firmware() {
     echo -e "${STEPS} Start building OpenWrt with Image Builder..."
 
     # Selecting default packages, lib, theme, app and i18n, etc.
+    # sorting by https://build.moz.one
     my_packages="\
-        base-files busybox ca-bundle -dnsmasq dnsmasq-full dropbear e2fsprogs firewall4 fstools kmod-nft-offload libc libgcc libustream-wolfssl logd luci mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd procd-seccomp procd-ujail uci uclient-fetch urandom-seed urngd \
-        btrfs-progs zram-swap tar bash curl bind-tools ca-certificates luci-compat coreutils-nohup luci-mod-admin-full perlbase-file perlbase-time \
+        btrfs-progs base-files busybox ca-bundle dropbear e2fsprogs firewall4 fstools kmod-nft-offload  \
+        libc libgcc libustream-wolfssl logd mkf2fs netifd nftables odhcp6c opkg partx-utils  \
+        procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd  \
+        zram-swap tar curl luci-compat perlbase-file perlbase-time  \
+        \
         luci-app-amlogic \
         \
         ${config_list} \
         "
 
     # Rebuild firmware
-    make image PROFILE="${target_profile}" PACKAGES="${my_packages}" FILES="files"
+    make image PROFILE="Default" PACKAGES="${my_packages}" FILES="files"
 
     sync && sleep 3
-    echo -e "${INFO} [ ${openwrt_dir}/bin/targets/*/* ] directory status: $(ls bin/targets/*/* -al 2>/dev/null)"
+    echo -e "${INFO} [ openwrt/bin/targets/armvirt/64 ] directory status: $(ls bin/targets/*/* -l 2>/dev/null)"
     echo -e "${SUCCESS} The rebuild is successful, the current path: [ ${PWD} ]"
 }
 
 # Show welcome message
 echo -e "${STEPS} Welcome to Rebuild OpenWrt Using the Image Builder."
 [[ -x "${0}" ]] || error_msg "Please give the script permission to run: [ chmod +x ${0} ]"
-[[ -z "${1}" ]] && error_msg "Please specify the OpenWrt Branch, such as [ ${0} openwrt:22.03.3 ]"
-[[ "${1}" =~ ^[a-z]{3,}:[0-9]+ ]] || error_msg "Incoming parameter format <source:branch>: openwrt:22.03.3"
-op_sourse="${1%:*}"
-op_branch="${1#*:}"
+[[ -z "${1}" ]] && error_msg "Please specify the OpenWrt Branch, such as [ ${0} 21.02.3 ]"
+rebuild_branch="${1}"
 echo -e "${INFO} Rebuild path: [ ${PWD} ]"
-echo -e "${INFO} Rebuild Source: [ ${op_sourse} ], Branch: [ ${op_branch} ]"
+echo -e "${INFO} Rebuild branch: [ ${rebuild_branch} ]"
 echo -e "${INFO} Server space usage before starting to compile: \n$(df -hT ${make_path}) \n"
 #
 # Perform related operations
