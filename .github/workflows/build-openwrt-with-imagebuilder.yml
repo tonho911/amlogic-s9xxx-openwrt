@@ -28,6 +28,7 @@ on:
         default: "all"
         type: choice
         options:
+          - all        
           - s905x
           - s905x-b860h
           - s905x3          
