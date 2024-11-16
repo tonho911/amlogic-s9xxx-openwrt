@@ -30,6 +30,8 @@ on:
         options:
           - s905x
           - s905x-b860h
+          - s905x3          
+          - s905x3-x96max          
       openwrt_kernel:
         description: "Select kernel version"
         required: false
