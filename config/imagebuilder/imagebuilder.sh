@@ -189,6 +189,10 @@ rebuild_firmware() {
         logd mkf2fs mtd netifd nftables odhcp6c odhcpd-ipv6only opkg partx-utils ppp ppp-mod-pppoe procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd luci \
 	btrfs-progs zram-swap tar bash curl bind-tools ca-certificates luci-compat coreutils-nohup luci-mod-admin-full perlbase-file perlbase-time \
         luci-app-amlogic \
+	ipset iptables iptables-mod-iprange \
+        iptables-mod-socket iptables-mod-tproxy kmod-ipt-nat coreutils coreutils-base64 \
+        ip-full libuci-lua \
+        resolveip unzip kmod-nft-tproxy kmod-nft-socket bash
         \
         ${config_list} \
         "
