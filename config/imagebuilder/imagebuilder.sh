@@ -192,7 +192,7 @@ rebuild_firmware() {
 	ipset iptables iptables-mod-iprange \
         iptables-mod-socket iptables-mod-tproxy kmod-ipt-nat coreutils coreutils-base64 \
         ip-full libuci-lua \
-        resolveip unzip kmod-nft-tproxy kmod-nft-socket bash
+        resolveip unzip kmod-nft-tproxy kmod-nft-socket
         \
         ${config_list} \
         "
