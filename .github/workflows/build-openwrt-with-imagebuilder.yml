@@ -15,7 +15,7 @@ on:
       releases_branch:
         description: "Select the releases branch"
         required: false
-        default: "openwrt:23.05.3"
+        default: "openwrt:22.03.7"
         type: choice
         options:
           - openwrt:22.03.7
@@ -30,10 +30,7 @@ on:
         options:
           - all        
           - s905x
-          - s905x-b860h
-          - s905x3          
-          - s905x3-x96max
-          - s905x3-a100          
+          - s905x-b860h        
       openwrt_kernel:
         description: "Select kernel version"
         required: false
@@ -47,6 +44,7 @@ on:
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
+          - 6.12.y                    
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
