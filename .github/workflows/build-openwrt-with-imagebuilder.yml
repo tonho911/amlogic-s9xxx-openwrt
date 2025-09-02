@@ -19,7 +19,10 @@ on:
         type: choice
         options:
           - openwrt:22.03.7
+          - openwrt:22.03.3
           - openwrt:23.05.6
+          - openwrt:23.05.5
+          - openwrt:23.05.3
       openwrt_board:
         description: "Select device board"
         required: false
@@ -30,7 +33,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.1.y_6.6.y"
+        default: "6.6.y_6.12.y"
         type: choice
         options:
           - 5.4.y
