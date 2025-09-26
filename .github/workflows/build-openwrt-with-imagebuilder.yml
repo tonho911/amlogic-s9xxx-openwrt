@@ -29,7 +29,9 @@ on:
         default: "all"
         type: choice
         options:
-          - s905x      
+          - s905x
+          - s905x2
+          - s905x2-hg680fj
       openwrt_kernel:
         description: "Select kernel version"
         required: false
