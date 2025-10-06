@@ -291,7 +291,7 @@ wget -O /opt/marzban/index.html "https://github.com/cs-69/mpv/raw/refs/heads/mas
 wget -O /opt/marzban/.env "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/env"
 
 #install compose
-wget -O /opt/marzban/docker-compose.yml "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/docker-compose.yml"
+wget -O /opt/marzban/docker-compose.yml "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/docker-compose.yml"
 
 #install assets & core
 mkdir -p /etc/autokill/logs
