@@ -71,7 +71,6 @@ apt install ruby -y
 gem install lolcat
 apt install wondershaper -y
 clear
-sfile="https://github.com/cs-69/mpv/tree/master/icons"
 
 colorized_echo() {
     local color=$1
@@ -363,50 +362,50 @@ wget -O /var/lib/marzban/xray_config.json "https://github.com/cs-69/mpv/raw/refs
 #install command
 cd /usr/bin
 #List Trojan
-wget -O addtrws "$sfile/command/addtrws" && chmod +x addtrws
-wget -O addtrhu "$sfile/command/addtrhu" && chmod +x addtrhu
-wget -O addtrgrpc "$sfile/command/addtrgrpc" && chmod +x addtrgrpc
-wget -O addtrojan "$sfile/command/addtrojan" && chmod +x addtrojan
+wget -O addtrws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrws" && chmod +x addtrws
+wget -O addtrhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrhu" && chmod +x addtrhu
+wget -O addtrgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrgrpc" && chmod +x addtrgrpc
+wget -O addtrojan "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrojan" && chmod +x addtrojan
 #Lits VMess
-wget -O addvmws "$sfile/command/addvmws" && chmod +x addvmws
-wget -O addvmhu "$sfile/command/addvmhu" && chmod +x addvmhu
-wget -O addvmgrpc "$sfile/command/addvmgrpc" && chmod +x addvmgrpc
-wget -O addvmess "$sfile/command/addvmess" && chmod +x addvmess
+wget -O addvmws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmws" && chmod +x addvmws
+wget -O addvmhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmhu" && chmod +x addvmhu
+wget -O addvmgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmgrpc" && chmod +x addvmgrpc
+wget -O addvmess "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmess" && chmod +x addvmess
 #List VLess
-wget -O addvlws "$sfile/command/addvlws" && chmod +x addvlws
-wget -O addvlhu "$sfile/command/addvlhu" && chmod +x addvlhu
-wget -O addvlgrpc "$sfile/command/addvlgrpc" && chmod +x addvlgrpc
-wget -O addvless "$sfile/command/addvless" && chmod +x addvless
+wget -O addvlws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlws" && chmod +x addvlws
+wget -O addvlhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlhu" && chmod +x addvlhu
+wget -O addvlgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlgrpc" && chmod +x addvlgrpc
+wget -O addvless "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvless" && chmod +x addvless
 #List ShadowSocks
-wget -O addshadow "$sfile/command/addshadow" && chmod +x addshadow
-wget -O addsso "$sfile/command/addsso" && chmod +x addsso
-wget -O addssws "$sfile/command/addssws" && chmod +x addssws
-wget -O addsshu "$sfile/command/addsshu" && chmod +x addsshu
-wget -O addssgrpc "$sfile/command/addssgrpc" && chmod +x addssgrpc
+wget -O addshadow "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addshadow" && chmod +x addshadow
+wget -O addsso "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addsso" && chmod +x addsso
+wget -O addssws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addssws" && chmod +x addssws
+wget -O addsshu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addsshu" && chmod +x addsshu
+wget -O addssgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addssgrpc" && chmod +x addssgrpc
 #Additional
-wget -O status "$sfile/command/status" && chmod +x status
-wget -O addtrial "$sfile/command/addtrial" && chmod +x addtrial
-wget -O menu "$sfile/command/menu" && chmod +x menu
-wget -O ceklogin "$sfile/command/ceklogin" && chmod +x ceklogin
-wget -O hapus "$sfile/command/hapus" && chmod +x hapus
-wget -O renew "$sfile/command/renew" && chmod +x renew
-wget -O resetusage "$sfile/command/resetusage" && chmod +x resetusage
-wget -O buat_token "$sfile/command/buat_token" && chmod +x buat_token
-wget -O cekservice "$sfile/command/cekservice" && chmod +x cekservice
-wget -O ram "$sfile/command/ram" && chmod +x ram
-wget -O menu-backup "$sfile/command/menu-backup" && chmod +x menu-backup
-wget -O menu-reboot "$sfile/command/menu-reboot" && chmod +x menu-reboot
-wget -O menu-akun "$sfile/command/menu-akun" && chmod +x menu-akun
-wget -O backup "$sfile/command/backup" && chmod +x backup
-wget -O clearlog "$sfile/command/clearlog" && chmod +x clearlog
-wget -O ceklog "$sfile/command/ceklog" && chmod +x ceklog
-wget -O cekerror "$sfile/command/cekerror" && chmod +x cekerror
-wget -O ceknginx "$sfile/command/ceknginx" && chmod +x ceknginx
-wget -O expired "$sfile/command/expired" && chmod +x expired
-wget -O setlimit "$sfile/command/setlimit" && chmod +x setlimit
-wget -O autokill "$sfile/command/autokill" && chmod +x autokill
-wget -O fix-ssl "$sfile/command/fix-ssl.sh" && chmod +x fix-ssl
-wget -O ganticore "$sfile/command/ganticore" && chmod +x ganticore
+wget -O status "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/status" && chmod +x status
+wget -O addtrial "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrial" && chmod +x addtrial
+wget -O menu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu" && chmod +x menu
+wget -O ceklogin "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceklogin" && chmod +x ceklogin
+wget -O hapus "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/hapus" && chmod +x hapus
+wget -O renew "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/renew" && chmod +x renew
+wget -O resetusage "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/resetusage" && chmod +x resetusage
+wget -O buat_token "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/buat_token" && chmod +x buat_token
+wget -O cekservice "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/cekservice" && chmod +x cekservice
+wget -O ram "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ram" && chmod +x ram
+wget -O menu-backup "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-backup" && chmod +x menu-backup
+wget -O menu-reboot "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-reboot" && chmod +x menu-reboot
+wget -O menu-akun "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-akun" && chmod +x menu-akun
+wget -O backup "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/backup" && chmod +x backup
+wget -O clearlog "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/clearlog" && chmod +x clearlog
+wget -O ceklog "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceklog" && chmod +x ceklog
+wget -O cekerror "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/cekerror" && chmod +x cekerror
+wget -O ceknginx "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceknginx" && chmod +x ceknginx
+wget -O expired "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/expired" && chmod +x expired
+wget -O setlimit "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/setlimit" && chmod +x setlimit
+wget -O autokill "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/autokill" && chmod +x autokill
+wget -O fix-ssl "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/fix-ssl.sh" && chmod +x fix-ssl
+wget -O ganticore "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ganticore" && chmod +x ganticore
 cd
 
 #Install reboot dan expired otomatis
@@ -500,4 +499,3 @@ exit 0
 else
 reboot
 fi
-
