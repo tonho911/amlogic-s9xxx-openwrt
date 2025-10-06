@@ -228,7 +228,7 @@ while true; do
 done
 
 #install sysctl
-wget -O /etc/sysctl.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/sysctl.conf"
+wget -O /etc/sysctl.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/sysctl.conf"
 
 # gunakan ipv6 atau tidak
 echo "1. Aktifkan IPv6"
@@ -264,7 +264,7 @@ apt-get -y --purge remove sendmail*;
 apt-get -y --purge remove bind9*;
 
 #install benchmark
-wget -O /usr/bin/bench "hhttps://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/bench.sh" && chmod +x /usr/bin/bench
+wget -O /usr/bin/bench "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/bench.sh" && chmod +x /usr/bin/bench
 
 #install toolkit
 sudo apt-get install git libio-socket-inet6-perl libsocket6-perl libcrypt-ssleay-perl libnet-libidn-perl perl libio-socket-ssl-perl libwww-perl libpcre3 libpcre3-dev zlib1g-dev dbus iftop zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr dnsutils at htop iptables bsdmainutils cron lsof lnav -y
@@ -277,13 +277,13 @@ gem install lolcat;
 timedatectl set-timezone Asia/Jakarta;
 
 #Install Marzban
-sudo bash -c "$(curl -sL https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/marzban.sh)" @ install
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/marzban.sh)" @ install
 
 #install subs
-wget -O /opt/marzban/index.html "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/index.html"
+wget -O /opt/marzban/index.html "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/index.html"
 
 #install env
-wget -O /opt/marzban/.env "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/env"
+wget -O /opt/marzban/.env "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/env"
 
 #install compose
 wget -O /opt/marzban/docker-compose.yml "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/docker-compose.yml"
@@ -293,12 +293,12 @@ mkdir -p /etc/autokill/logs
 mkdir -p /etc/autokill/penalty_logs
 mkdir -p /var/lib/marzban/assets
 mkdir -p /var/lib/marzban/core
-wget -O /var/lib/marzban/core/xray "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/core/xray"
+wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/core/xray"
 chmod +x /var/lib/marzban/core/xray
 
 #profile
 echo -e 'profile' >> /root/.profile
-wget -O /usr/bin/profile "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/profile";
+wget -O /usr/bin/profile "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/profile";
 chmod +x /usr/bin/profile
 apt install neofetch -y
 
@@ -306,7 +306,7 @@ apt install neofetch -y
 apt -y install vnstat
 /etc/init.d/vnstat restart
 apt -y install libsqlite3-dev
-wget https://github.com/cs-69/mpv/raw/refs/heads/master/icons/utilitas/vnstat-2.6.tar.gz
+wget https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/utilitas/vnstat-2.6.tar.gz
 tar zxvf vnstat-2.6.tar.gz
 cd vnstat-2.6
 ./configure --prefix=/usr --sysconfdir=/etc && make && make install 
@@ -318,12 +318,12 @@ rm -f /root/vnstat-2.6.tar.gz
 rm -rf /root/vnstat-2.6
 
 # Swap RAM 1GB
-wget https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/swap.sh -O swap
+wget https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/swap.sh -O swap
 sh swap 1G
 rm swap
 
 #Install Speedtest
-curl -s https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/script.deb.sh | sudo bash
+curl -s https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/script.deb.sh | sudo bash
 sudo apt-get install speedtest -y
 
 #install gotop
@@ -337,9 +337,9 @@ cd
 mkdir -p /var/log/nginx
 touch /var/log/nginx/access.log
 touch /var/log/nginx/error.log
-wget -O /opt/marzban/nginx.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/nginx.conf"
-wget -O /opt/marzban/default.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/vps.conf"
-wget -O /opt/marzban/xray.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/xray.conf"
+wget -O /opt/marzban/nginx.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/nginx.conf"
+wget -O /opt/marzban/default.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/vps.conf"
+wget -O /opt/marzban/xray.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/xray.conf"
 mkdir -p /var/www/html
 echo "<pre>Setup by AutoScript tonho dalua</pre>" > /var/www/html/index.html
 
@@ -353,59 +353,59 @@ curl https://get.acme.sh | sh -s email=$email
 /root/.acme.sh/acme.sh --server letsencrypt --register-account -m $email --issue -d $domain --standalone -k ec-256 --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /var/lib/marzban/xray.crt --keypath /var/lib/marzban/xray.key --ecc
 rm /var/lib/marzban/xray_config.json
-wget -O /var/lib/marzban/xray_config.json "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/xray_config.json"
+wget -O /var/lib/marzban/xray_config.json "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/xray_config.json"
 
 #install command
 cd /usr/bin
 #List Trojan
-wget -O addtrws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrws" && chmod +x addtrws
-wget -O addtrhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrhu" && chmod +x addtrhu
-wget -O addtrgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrgrpc" && chmod +x addtrgrpc
-wget -O addtrojan "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrojan" && chmod +x addtrojan
+wget -O addtrws "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addtrws" && chmod +x addtrws
+wget -O addtrhu "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addtrhu" && chmod +x addtrhu
+wget -O addtrgrpc "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addtrgrpc" && chmod +x addtrgrpc
+wget -O addtrojan "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addtrojan" && chmod +x addtrojan
 #Lits VMess
-wget -O addvmws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmws" && chmod +x addvmws
-wget -O addvmhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmhu" && chmod +x addvmhu
-wget -O addvmgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmgrpc" && chmod +x addvmgrpc
-wget -O addvmess "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvmess" && chmod +x addvmess
+wget -O addvmws "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvmws" && chmod +x addvmws
+wget -O addvmhu "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvmhu" && chmod +x addvmhu
+wget -O addvmgrpc "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvmgrpc" && chmod +x addvmgrpc
+wget -O addvmess "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvmess" && chmod +x addvmess
 #List VLess
-wget -O addvlws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlws" && chmod +x addvlws
-wget -O addvlhu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlhu" && chmod +x addvlhu
-wget -O addvlgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvlgrpc" && chmod +x addvlgrpc
-wget -O addvless "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addvless" && chmod +x addvless
+wget -O addvlws "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvlws" && chmod +x addvlws
+wget -O addvlhu "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvlhu" && chmod +x addvlhu
+wget -O addvlgrpc "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvlgrpc" && chmod +x addvlgrpc
+wget -O addvless "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addvless" && chmod +x addvless
 #List ShadowSocks
-wget -O addshadow "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addshadow" && chmod +x addshadow
-wget -O addsso "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addsso" && chmod +x addsso
-wget -O addssws "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addssws" && chmod +x addssws
-wget -O addsshu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addsshu" && chmod +x addsshu
-wget -O addssgrpc "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addssgrpc" && chmod +x addssgrpc
+wget -O addshadow "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addshadow" && chmod +x addshadow
+wget -O addsso "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addsso" && chmod +x addsso
+wget -O addssws "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addssws" && chmod +x addssws
+wget -O addsshu "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addsshu" && chmod +x addsshu
+wget -O addssgrpc "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addssgrpc" && chmod +x addssgrpc
 #Additional
-wget -O status "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/status" && chmod +x status
-wget -O addtrial "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/addtrial" && chmod +x addtrial
-wget -O menu "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu" && chmod +x menu
-wget -O ceklogin "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceklogin" && chmod +x ceklogin
-wget -O hapus "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/hapus" && chmod +x hapus
-wget -O renew "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/renew" && chmod +x renew
-wget -O resetusage "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/resetusage" && chmod +x resetusage
-wget -O buat_token "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/buat_token" && chmod +x buat_token
-wget -O cekservice "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/cekservice" && chmod +x cekservice
-wget -O ram "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ram" && chmod +x ram
-wget -O menu-backup "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-backup" && chmod +x menu-backup
-wget -O menu-reboot "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-reboot" && chmod +x menu-reboot
-wget -O menu-akun "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/menu-akun" && chmod +x menu-akun
-wget -O backup "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/backup" && chmod +x backup
-wget -O clearlog "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/clearlog" && chmod +x clearlog
-wget -O ceklog "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceklog" && chmod +x ceklog
-wget -O cekerror "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/cekerror" && chmod +x cekerror
-wget -O ceknginx "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ceknginx" && chmod +x ceknginx
-wget -O expired "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/expired" && chmod +x expired
-wget -O setlimit "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/setlimit" && chmod +x setlimit
-wget -O autokill "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/autokill" && chmod +x autokill
-wget -O fix-ssl "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/fix-ssl.sh" && chmod +x fix-ssl
-wget -O ganticore "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/ganticore" && chmod +x ganticore
+wget -O status "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/status" && chmod +x status
+wget -O addtrial "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/addtrial" && chmod +x addtrial
+wget -O menu "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/menu" && chmod +x menu
+wget -O ceklogin "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/ceklogin" && chmod +x ceklogin
+wget -O hapus "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/hapus" && chmod +x hapus
+wget -O renew "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/renew" && chmod +x renew
+wget -O resetusage "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/resetusage" && chmod +x resetusage
+wget -O buat_token "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/buat_token" && chmod +x buat_token
+wget -O cekservice "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/cekservice" && chmod +x cekservice
+wget -O ram "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/ram" && chmod +x ram
+wget -O menu-backup "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/menu-backup" && chmod +x menu-backup
+wget -O menu-reboot "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/menu-reboot" && chmod +x menu-reboot
+wget -O menu-akun "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/menu-akun" && chmod +x menu-akun
+wget -O backup "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/backup" && chmod +x backup
+wget -O clearlog "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/clearlog" && chmod +x clearlog
+wget -O ceklog "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/ceklog" && chmod +x ceklog
+wget -O cekerror "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/cekerror" && chmod +x cekerror
+wget -O ceknginx "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/ceknginx" && chmod +x ceknginx
+wget -O expired "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/expired" && chmod +x expired
+wget -O setlimit "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/setlimit" && chmod +x setlimit
+wget -O autokill "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/autokill" && chmod +x autokill
+wget -O fix-ssl "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/fix-ssl.sh" && chmod +x fix-ssl
+wget -O ganticore "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/ganticore" && chmod +x ganticore
 cd
 
 #Install reboot dan expired otomatis
-wget -O /usr/bin/reboot_otomatis "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/reboot_otomatis.sh";
+wget -O /usr/bin/reboot_otomatis "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/reboot_otomatis.sh";
 chmod +x /usr/bin/reboot_otomatis;
 echo "00 1 * * * root /usr/bin/expired" >> /etc/cron.d/expired_otomatis;
 systemctl restart cron;
@@ -434,10 +434,10 @@ systemctl enable ufw
 systemctl start ufw
 
 #install database
-wget -O /var/lib/marzban/db.sqlite3 "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/utilitas/db.sqlite3"
+wget -O /var/lib/marzban/db.sqlite3 "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/utilitas/db.sqlite3"
 
 #install warp
-wget -O /root/warp "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/install_warp_proxy.sh"
+wget -O /root/warp "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/install_warp_proxy.sh"
 sudo chmod +x /root/warp
 sudo bash /root/warp -y
 rm /root/warp
