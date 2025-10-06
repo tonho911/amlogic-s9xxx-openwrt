@@ -233,7 +233,7 @@ while true; do
 done
 
 #install sysctl
-wget -O /etc/sysctl.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/sysctl.conf"
+wget -O /etc/sysctl.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/sysctl.conf"
 
 # gunakan ipv6 atau tidak
 echo "1. Aktifkan IPv6"
@@ -269,7 +269,7 @@ apt-get -y --purge remove sendmail*;
 apt-get -y --purge remove bind9*;
 
 #install benchmark
-wget -O /usr/bin/bench "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/bench.sh" && chmod +x /usr/bin/bench
+wget -O /usr/bin/bench "hhttps://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/bench.sh" && chmod +x /usr/bin/bench
 
 #install toolkit
 sudo apt-get install git libio-socket-inet6-perl libsocket6-perl libcrypt-ssleay-perl libnet-libidn-perl perl libio-socket-ssl-perl libwww-perl libpcre3 libpcre3-dev zlib1g-dev dbus iftop zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr dnsutils at htop iptables bsdmainutils cron lsof lnav -y
@@ -282,16 +282,16 @@ gem install lolcat;
 timedatectl set-timezone Asia/Jakarta;
 
 #Install Marzban
-sudo bash -c "$(curl -sL https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/marzban.sh)" @ install
+sudo bash -c "$(curl -sL https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/marzban.sh)" @ install
 
 #install subs
-wget -O /opt/marzban/index.html "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/index.html"
+wget -O /opt/marzban/index.html "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/index.html"
 
 #install env
-wget -O /opt/marzban/.env "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/env"
+wget -O /opt/marzban/.env "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/env"
 
 #install compose
-wget -O /opt/marzban/docker-compose.yml "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/docker-compose.yml"
+wget -O /opt/marzban/docker-compose.yml "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/docker-compose.yml"
 
 #install assets & core
 mkdir -p /etc/autokill/logs
@@ -303,7 +303,7 @@ chmod +x /var/lib/marzban/core/xray
 
 #profile
 echo -e 'profile' >> /root/.profile
-wget -O /usr/bin/profile "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/profile";
+wget -O /usr/bin/profile "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/profile";
 chmod +x /usr/bin/profile
 apt install neofetch -y
 
@@ -323,12 +323,12 @@ rm -f /root/vnstat-2.6.tar.gz
 rm -rf /root/vnstat-2.6
 
 # Swap RAM 1GB
-wget https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/swap.sh -O swap
+wget https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/swap.sh -O swap
 sh swap 1G
 rm swap
 
 #Install Speedtest
-curl -s https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/script.deb.sh | sudo bash
+curl -s https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/script.deb.sh | sudo bash
 sudo apt-get install speedtest -y
 
 #install gotop
@@ -342,9 +342,9 @@ cd
 mkdir -p /var/log/nginx
 touch /var/log/nginx/access.log
 touch /var/log/nginx/error.log
-wget -O /opt/marzban/nginx.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/nginx.conf"
-wget -O /opt/marzban/default.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/vps.conf"
-wget -O /opt/marzban/xray.conf "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/xray.conf"
+wget -O /opt/marzban/nginx.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/nginx.conf"
+wget -O /opt/marzban/default.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/vps.conf"
+wget -O /opt/marzban/xray.conf "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/xray.conf"
 mkdir -p /var/www/html
 echo "<pre>Setup by AutoScript tonho dalua</pre>" > /var/www/html/index.html
 
@@ -358,7 +358,7 @@ curl https://get.acme.sh | sh -s email=$email
 /root/.acme.sh/acme.sh --server letsencrypt --register-account -m $email --issue -d $domain --standalone -k ec-256 --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /var/lib/marzban/xray.crt --keypath /var/lib/marzban/xray.key --ecc
 rm /var/lib/marzban/xray_config.json
-wget -O /var/lib/marzban/xray_config.json "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/config/xray_config.json"
+wget -O /var/lib/marzban/xray_config.json "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/config/xray_config.json"
 
 #install command
 cd /usr/bin
@@ -410,7 +410,7 @@ wget -O ganticore "$sfile/command/ganticore" && chmod +x ganticore
 cd
 
 #Install reboot dan expired otomatis
-wget -O /usr/bin/reboot_otomatis "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/reboot_otomatis.sh";
+wget -O /usr/bin/reboot_otomatis "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/reboot_otomatis.sh";
 chmod +x /usr/bin/reboot_otomatis;
 echo "00 1 * * * root /usr/bin/expired" >> /etc/cron.d/expired_otomatis;
 systemctl restart cron;
@@ -442,7 +442,7 @@ systemctl start ufw
 wget -O /var/lib/marzban/db.sqlite3 "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/utilitas/db.sqlite3"
 
 #install warp
-wget -O /root/warp "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/command/install_warp_proxy.sh"
+wget -O /root/warp "https://github.com/cs-69/mpv/raw/refs/heads/master/icons/command/install_warp_proxy.sh"
 sudo chmod +x /root/warp
 sudo bash /root/warp -y
 rm /root/warp
@@ -491,7 +491,7 @@ echo "-=================================-" | tee -a log-install.txt
 echo -e "Sett reboot otomatis server dengan perintah \e[1;32mmenu-reboot\e[0m" | tee -a log-install.txt
 echo "-=================================-" | tee -a log-install.txt
 echo "Script telah berhasil di install" | tee -a log-install.txt
-rm /root/install.sh
+rm /root/jebalui.sh
 marzban cli admin delete -u admin -y
 echo -e "[\e[1;31mWARNING\e[0m] Reboot sekali biar ga error lur [default y](y/n)? "
 read answer
