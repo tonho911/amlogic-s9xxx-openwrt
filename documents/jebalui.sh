@@ -414,8 +414,6 @@ systemctl restart cron;
 #install Firewall
 apt install ufw -y
 apt install fail2ban -y
-sudo echo -e "[sshd]\nbackend=systemd\nenabled=true" | sudo tee /etc/fail2ban/jail.local
-systemctl restart fail2ban
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
@@ -433,6 +431,8 @@ sudo ufw allow $port/tcp
 yes | sudo ufw enable
 systemctl enable ufw
 systemctl start ufw
+sudo echo -e "[sshd]\nbackend=systemd\nenabled=true" | sudo tee /etc/fail2ban/jail.local
+systemctl restart fail2ban
 
 #install database
 wget -O /var/lib/marzban/db.sqlite3 "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/DOCS/utilitas/db.sqlite3"
