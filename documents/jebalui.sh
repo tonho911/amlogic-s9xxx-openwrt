@@ -115,7 +115,7 @@ if [ "$supported_os" != true ]; then
     colorized_echo red "Error: Skrip ini hanya support di Debian 12 dan Ubuntu 22.04. Mohon gunakan OS yang di support."
     exit 1
 fi
-apt install sudo curl -y
+apt install sudo curl jq unzip -y
 # Fungsi untuk menambahkan repo Debian 12
 addDebian12Repo() {
     echo "#mirror_kambing-sysadmind deb12
@@ -293,8 +293,14 @@ mkdir -p /etc/autokill/logs
 mkdir -p /etc/autokill/penalty_logs
 mkdir -p /var/lib/marzban/assets
 mkdir -p /var/lib/marzban/core
-wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/core/xray"
+##wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/icons/core/xray"
+##chmod +x /var/lib/marzban/core/xray
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1QUzT6W9oB3nKX3BgfVErJSiIDY7W0Ewr' -O xray && mv xray /var/lib/marzban/core/xray
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1_2wu13323wVbmOmT-0kLbVYfKBSiAk25' -O geoip.dat && mv geoip.dat /var/lib/marzban/core/geoip.dat
+wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=1AbCaZZqBybOHY8mS-yaLEf5IjdlYkDdV' -O geosite.dat && mv geosite.dat /var/lib/marzban/core/geosite.dat
 chmod +x /var/lib/marzban/core/xray
+chmod +x /var/lib/marzban/core/geoip.dat
+chmod +x /var/lib/marzban/core/geosite.dat
 
 #profile
 echo -e 'profile' >> /root/.profile
