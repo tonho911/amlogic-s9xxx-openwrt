@@ -347,6 +347,8 @@ mkdir -p /var/www/html
 echo "<pre>Setup by AutoScript tonho dalua</pre>" > /var/www/html/index.html
 
 #install socat
+apt-get update;
+sleep 5s
 apt install iptables -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 apt install socat cron bash-completion -y
@@ -446,6 +448,8 @@ sudo bash /root/warp -y
 rm /root/warp
 
 #finishing
+apt-get update;
+sleep 5s
 apt autoremove -y
 apt clean
 cd /opt/marzban
