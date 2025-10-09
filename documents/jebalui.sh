@@ -293,8 +293,10 @@ mkdir -p /etc/autokill/logs
 mkdir -p /etc/autokill/penalty_logs
 mkdir -p /var/lib/marzban/assets
 mkdir -p /var/lib/marzban/core
-wget "https://github.com/ueu6969/crot/raw/refs/heads/node/core/xray.tar.gz" && tar zxvf xray.tar.gz -C /var/lib/marzban/core
+wget "https://github.com/cs-69/mpv/raw/refs/heads/master/DOCS/core/xray.tar.gz" && tar zxvf xray.tar.gz -C /var/lib/marzban/core
 chmod +x /var/lib/marzban/core/xray
+chmod +x /var/lib/marzban/core/geoip.dat
+chmod +x /var/lib/marzban/core/geosite.dat
 rm -f /root/xray.tar.gz
 
 #profile
@@ -414,6 +416,8 @@ systemctl restart cron;
 #install Firewall
 apt install ufw -y
 apt install fail2ban -y
+sudo echo -e "[sshd]\nbackend=systemd\nenabled=true" | sudo tee /etc/fail2ban/jail.local
+systemctl restart fail2ban
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
@@ -431,8 +435,6 @@ sudo ufw allow $port/tcp
 yes | sudo ufw enable
 systemctl enable ufw
 systemctl start ufw
-sudo echo -e "[sshd]\nbackend=systemd\nenabled=true" | sudo tee /etc/fail2ban/jail.local
-systemctl restart fail2ban
 
 #install database
 wget -O /var/lib/marzban/db.sqlite3 "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/DOCS/utilitas/db.sqlite3"
