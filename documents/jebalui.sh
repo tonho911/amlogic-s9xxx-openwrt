@@ -293,12 +293,9 @@ mkdir -p /etc/autokill/logs
 mkdir -p /etc/autokill/penalty_logs
 mkdir -p /var/lib/marzban/assets
 mkdir -p /var/lib/marzban/core
-wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/DOCS/core/xray"
-wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/DOCS/core/geoip.dat"
-wget -O /var/lib/marzban/core/xray "https://raw.githubusercontent.com/cs-69/mpv/refs/heads/master/DOCS/core/geosite.dat"
+wget "https://github.com/ueu6969/crot/raw/refs/heads/node/core/xray.tar.gz" && tar zxvf xray.tar.gz -C /var/lib/marzban/core
 chmod +x /var/lib/marzban/core/xray
-chmod +x /var/lib/marzban/core/geoip.dat
-chmod +x /var/lib/marzban/core/geosite.dat
+rm -f /root/xray.tar.gz
 
 #profile
 echo -e 'profile' >> /root/.profile
